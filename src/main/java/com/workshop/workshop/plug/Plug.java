@@ -20,16 +20,25 @@ public class Plug {
     @GetMapping("/workshop/plug/is_on")
     public ResponseEntity<String> PlugStatus(){
         JsonObject body = new JsonObject();
-      body.addProperty("plug status: ", isPlugOn? "on" : "off");
+      body.addProperty("Plug side:the plug status is: ", isPlugOn? "on" : "off");
        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(gson.toJson(body));
     }
 
     @GetMapping("/workshop/plug/change_plug_mode")
     public ResponseEntity<String> ChangeCurrentPlugMode(){
         JsonObject body = new JsonObject();
-        body.addProperty("plug status before changing: ", isPlugOn? "on" : "off");
+        body.addProperty("Plug side: the plug status before changing is: ", isPlugOn? "on" : "off");
         isPlugOn = !isPlugOn;
-        body.addProperty("plug status after changing: ", isPlugOn? "on" : "off");
+        body.addProperty("Plug side: the plug status after changing is: ", isPlugOn? "on" : "off");
+
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(gson.toJson(body));
+    }
+
+    @GetMapping("/workshop/plug/off")
+    public ResponseEntity<String> makePlugOff(){
+        JsonObject body = new JsonObject();
+        isPlugOn = false;
+        body.addProperty("Plug side:the plug status is: ","off");
 
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(gson.toJson(body));
     }
