@@ -18,7 +18,8 @@ public class Plug {
         gson = new Gson();
     }
 
-    @GetMapping("/workshop/plug/is_on")
+    @GetMapping("" +
+            "/workshop/plug/is_on")
     public ResponseEntity<String> PlugStatus(){
         JsonObject body = new JsonObject();
       body.addProperty("Plug side:the plug status is: ", isPlugOn? "on" : "off");
