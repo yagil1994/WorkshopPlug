@@ -42,8 +42,6 @@ public class Plug {
         String translateTrueToOnOrFalseToOff = isPlugOn? "on" : "off";
         body.addProperty("Plug side:the plug status is: ",translateTrueToOnOrFalseToOff);
 
-       // return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(gson.toJson(body));
-
         return "Plug side:the plug status is: " + translateTrueToOnOrFalseToOff;
     }
 }
